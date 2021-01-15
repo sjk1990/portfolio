@@ -291,3 +291,107 @@ p {
 .etc {
   padding: 20px;
 }
+
+/* Works */
+.work__categories {
+  margin: 40px;
+}
+.category__btn {
+  border: 1px solid var(--color-dark-white);
+  border-radius: var(--size-border-radius);
+  font-size: var(--font-regular);
+  padding: 8px 48px;
+}
+
+.category__btn.active,
+.category__btn:hover {
+  background-color: var(--color-pink);
+  color: var(--color-white);
+}
+
+.category__count {
+  margin-left: 3px;
+  background-color: var(--color-orange);
+  border-radius: 50%;
+  color: var(--color-white);
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  position: relative;
+  top: -20px;
+  left: 4px;
+  /* 투명도 */
+  opacity: 0;
+  transition: all var(--animation-duration) ease-in;
+}
+
+.category__btn.active .category__count,
+.category__btn:hover .category__count {
+  opacity: 1;
+  top: 0;
+}
+
+.work__projects {
+  display: flex;
+  /* 아이템이 꽉 찰 경우 자동 줄바꿈 */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project {
+  position: relative;
+  /* project 하위의 img 중앙정렬 */
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 280px;
+  height: 250px;
+  margin: 2px;
+  background-color: var(--color-light-white);
+}
+
+.project__img {
+  /* 부모인 project 크기의 1배 */
+  max-width: 100%;
+  max-height: 100%;
+  align-self: center;
+}
+
+.project__description {
+  position: absolute;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* 부모인 project 크기의 1배 */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /* 투명도가 0이기때문에 평소에는 안보임 */
+  opacity: 0;
+  transition: all var(--animation-duration) ease-in;
+  transform: translateY(10px);
+}
+
+.project:hover .project__description {
+  opacity: 0.8;
+  transform: translateY(0px);
+}
+
+.project__description h3 {
+  color: var(--color-white);
+}
+
+.project__description h3:after {
+  content: "";
+  display: block;
+  position: relative;
+  left: 50%;
+  margin-left: -14px;
+  margin-top: 8px;
+  width: 25px;
+  height: 2px;
+  background-color: var(--color-dark-white);
+}
