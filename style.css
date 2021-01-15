@@ -410,13 +410,14 @@ p {
   margin: 32px 0;
 }
 
-.testmonial:nth-child(odd) {
-  justify-content: start;
+/* 오른쪽/왼쪽정렬 혹은 말풍선의 width를 100%로 주기. */
+/* .testmonial:nth-child(odd) {
+  justify-content: flex-start;
 }
 
 .testmonial:nth-child(even) {
-  justify-content: end;
-}
+  justify-content: flex-end;
+} */
 
 .testmonial__avatar {
   width: 150px;
@@ -435,6 +436,7 @@ p {
 
 .testmonial__speech-bubble {
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
