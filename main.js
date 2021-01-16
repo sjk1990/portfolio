@@ -34,3 +34,12 @@ function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth" });
 }
+
+//스크롤에 따른 home 컨테이너 fade out
+const home = document.querySelector("#home");
+const homeHeight = home.getBoundingClientRect().height;
+
+document.addEventListener("scroll", () => {
+  //   console.log(1 - window.scrollY / homeHeight);
+  home.style.opacity = 1 - window.scrollY / homeHeight;
+});
