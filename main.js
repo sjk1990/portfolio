@@ -21,7 +21,16 @@ navbarMenu.addEventListener("click", (event) => {
     return;
   }
 
-  const scrollTo = document.querySelector(link);
-  console.log(scrollTo);
-  scrollTo.scrollIntoView({ behavior: "smooth" });
+  scrollIntoView(link);
 });
+
+//contact버튼 화면이동 처리
+const contact = document.querySelector(".home__contact");
+contact.addEventListener("click", () => {
+  scrollIntoView("#contact");
+});
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: "smooth" });
+}
