@@ -363,6 +363,13 @@ p {
   /* 아이템이 꽉 찰 경우 자동 줄바꿈 */
   flex-wrap: wrap;
   justify-content: center;
+  opacity: 1;
+  transition: all var(--animation-duration) ease-out;
+}
+
+.work__projects.animation-out {
+  opacity: 0;
+  transform: scale(0.96) translateY(40px);
 }
 
 .project {
@@ -375,6 +382,10 @@ p {
   height: 250px;
   margin: 2px;
   background-color: var(--color-light-white);
+}
+
+.project.invisible {
+  display: none;
 }
 
 .project__img {
@@ -513,7 +524,7 @@ p {
   font-size: 40px;
   width: 60px;
   height: 60px;
-  background-color: var(--color-pink);
+  background-color: var(--color-dark-pink);
   color: var(--color-white);
   border-radius: 50%;
   /* display가 none일 경우 애니메이션 적용이 안됨 -> opacity 이용 */
