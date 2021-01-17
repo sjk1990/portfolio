@@ -20,8 +20,14 @@ navbarMenu.addEventListener("click", (event) => {
   if (!link) {
     return;
   }
-
+  navbarMenu.classList.remove("open");
   scrollIntoView(link);
+});
+
+// 스크린 줄어들 경우 Navbar toggle btn
+const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
+navbarToggleBtn.addEventListener("click", () => {
+  navbarMenu.classList.toggle("open");
 });
 
 //contact버튼 화면이동 처리
