@@ -195,6 +195,10 @@ p {
   border-radius: var(--size-border-radius);
 }
 
+.home__contact:hover {
+  background-color: var(--color-orange);
+}
+
 /* About */
 .about__majors {
   display: flex;
@@ -322,6 +326,7 @@ p {
   margin: 40px;
 }
 .category__btn {
+  position: relative;
   border: 1px solid var(--color-dark-white);
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
@@ -343,9 +348,9 @@ p {
   height: 24px;
   line-height: 24px;
   display: inline-block;
-  position: relative;
+  position: absolute;
   top: -20px;
-  left: 4px;
+  right: 16px;
   /* 투명도 */
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
@@ -521,7 +526,7 @@ p {
   position: fixed;
   bottom: 50px;
   right: 50px;
-  font-size: 40px;
+  font-size: var(--font-medium);
   width: 60px;
   height: 60px;
   background-color: var(--color-dark-pink);
@@ -542,8 +547,18 @@ p {
 }
 
 @media screen and (max-width: 768px) {
+  :root {
+    /* Font size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
+
   .navbar__toggle-btn {
     display: block;
+    position: 10px;
   }
 
   #navbar {
@@ -563,12 +578,26 @@ p {
     display: block;
   }
 
+  .navbar__toggle-btn {
+    display: block;
+    font-size: var(--font-medium);
+    top: 8px;
+    right: 16px;
+  }
+
+  .section {
+    padding: 16px;
+    padding-top: 30px;
+  }
+
   .about__majors {
     flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 0px;
   }
 
   .major {
-    margin: 38px;
+    margin: 30px;
   }
 
   .skillset {
@@ -584,8 +613,32 @@ p {
     flex-grow: 1;
   }
 
+  .testmonial {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .testmonial__avatar {
     width: 80px;
     height: 80px;
+  }
+
+  .testmonial__avatar:nth-child(even) {
+    margin-left: 12px;
+  }
+
+  .testmonial__avatar:nth-child(odd) {
+    margin-right: 12px;
+  }
+
+  .testmonial__speech-bubble {
+    order: 1;
+  }
+
+  .arrow-up {
+    width: 40px;
+    height: 40px;
+    bottom: 30px;
+    right: 30px;
   }
 }
