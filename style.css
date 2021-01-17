@@ -505,6 +505,31 @@ p {
   transition: all var(--animation-duration) ease;
 }
 
+/* Arrow Up */
+.arrow-up {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  font-size: 40px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-pink);
+  color: var(--color-white);
+  border-radius: 50%;
+  /* display가 none일 경우 애니메이션 적용이 안됨 -> opacity 이용 */
+  /* display: none; */
+  opacity: 0;
+  /* 안보일 때는 클릭 불가능하게 */
+  pointer-events: none;
+  transition: all var(--animation-duration) ease-in;
+}
+
+.arrow-up.visible {
+  display: block;
+  opacity: 1;
+  pointer-events: all;
+}
+
 @media screen and (max-width: 768px) {
   .navbar__toggle-btn {
     display: block;

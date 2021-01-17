@@ -43,3 +43,18 @@ document.addEventListener("scroll", () => {
   //   console.log(1 - window.scrollY / homeHeight);
   home.style.opacity = 1 - window.scrollY / homeHeight;
 });
+
+// arrow-up 버튼 생성, 해제
+const arrowUp = document.querySelector(".arrow-up");
+document.addEventListener("scroll", () => {
+  if (window.scrollY > homeHeight / 2) {
+    arrowUp.classList.add("visible");
+  } else {
+    arrowUp.classList.remove("visible");
+  }
+});
+
+// arrow-up 버튼 클릭시 홈화면 이동
+arrowUp.addEventListener("click", () => {
+  scrollIntoView("#home");
+});
