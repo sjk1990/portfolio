@@ -69,6 +69,13 @@ workBtnContainer.addEventListener("click", (e) => {
     return;
   }
 
+  //categoryBtn 선택시 이전 선택지 제거, 새 선택지 선택
+  const active = document.querySelector(".category__btn.selected");
+  active.classList.remove("selected");
+  const target =
+    e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
+  target.classList.add("selected");
+
   projectContainer.classList.add("animation-out");
   setTimeout(() => {
     projects.forEach((project) => {
