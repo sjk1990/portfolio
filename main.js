@@ -15,12 +15,11 @@ document.addEventListener("scroll", () => {
 //navbar 메뉴 클릭시 해당 화면으로 이동
 const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener("click", (event) => {
-  //   console.dir(event.target.dataset.link);
-  const target = event.target;
   const link = event.target.dataset.link;
   if (!link) {
     return;
   }
+  // 해당 섹션으로 이동 후 메뉴바 닫힘
   navbarMenu.classList.remove("open");
   scrollIntoView(link);
 });
@@ -71,9 +70,10 @@ workBtnContainer.addEventListener("click", (e) => {
     return;
   }
 
-  //categoryBtn 선택시 이전 선택지 제거, 새 선택지 선택
+  //categoryBtn 선택시 이전 선택지 제거
   const active = document.querySelector(".category__btn.selected");
   active.classList.remove("selected");
+  //새 선택지 선택
   const target =
     e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
   target.classList.add("selected");
@@ -108,8 +108,6 @@ const sections = sectionIds.map((id) => document.querySelector(id));
 const navItems = sectionIds.map((id) =>
   document.querySelector(`[data-link="${id}"]`)
 );
-// console.log(sections);
-// console.log(navItems);
 
 let selectedNavIndex = 0;
 let selectedNavItem = navItems[0];
@@ -138,8 +136,9 @@ const observerOptions = {
 //옵저버가 할 일 정의 (해당섹션을 찾아 메뉴활성화)
 const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {
-    //화면이 밖으로 나가거나 && 화면에 노출되지 않는것(intersectionRatio=0) 제외
+    //화면이 밖으로 나가거나 && 화면에 노출중인 것(intersectionRatio!==0) 제외
     // 페이지가 로딩되자마자 밖으로 나가지기 때문
+    console.log(entry.target);
     if (!entry.isIntersecting && entry.intersectionRatio > 0) {
       const index = sectionIds.indexOf(`#${entry.target.id}`);
 
@@ -154,6 +153,7 @@ const observerCallback = (entries, observer) => {
 };
 
 // 옵저버를 만들고 옵션과 콜백을 전달
+// 원하는 요소가 특정 영역에 들어오거나 나갈 때 콜백함수 실행
 const observer = new IntersectionObserver(observerCallback, observerOptions);
 
 // 옵저버를 이용하여 섹션들을 관찰
