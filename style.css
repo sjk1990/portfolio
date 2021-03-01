@@ -11,6 +11,7 @@
   --color-light-grey: #7c7979;
   --color-blue: #73aace;
   --color-yellow: #fff7d1;
+  --color-dark-yellow: #fcf802;
   --color-orange: #feb546;
   --color-black: #000000;
 
@@ -28,6 +29,7 @@
 
   /* Size */
   --size-border-radius: 4px;
+  --study-border-radius: 5%;
 
   /* Animation */
   --animation-duration: 300ms;
@@ -285,7 +287,7 @@ p {
 }
 
 .skillset__title {
-  color: var(--color-white);
+  color: var(--color-dark-yellow);
 }
 
 .skillset__left {
@@ -313,6 +315,11 @@ p {
 .skill__value {
   height: 3px;
   background-color: var(--color-orange);
+}
+
+.value__description {
+  text-align: left;
+  line-height: var(--font-medium);
 }
 
 .skillset__right {
@@ -471,9 +478,9 @@ p {
 } */
 
 .testmonial__avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  width: 500px;
+  height: 400px;
+  border-radius: var(--study-border-radius);
   margin: 12px;
 }
 
@@ -488,19 +495,24 @@ p {
 .testmonial__speech-bubble {
   display: flex;
   width: 100%;
+  margin: 12px 12px 12px 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 18px;
   background-color: var(--color-white);
-  border-radius: var(--size-border-radius);
+  border-radius: var(--study-border-radius);
+}
+
+.testmonial__speech-bubble div {
+  margin: 48px 0;
 }
 
 .testmonial__speech-bubble p {
   color: var(--color-light-grey);
 }
 
-.testmonial__speech-bubble a {
+.testmonial__speech-bubble p a {
   color: var(--color-pink);
 }
 
@@ -511,6 +523,7 @@ p {
 
 .contact__title,
 .contact__email,
+.contact__description,
 .contact__rights {
   color: var(--color-white);
 }
@@ -521,7 +534,7 @@ p {
 
 .contact__links {
   font-size: var(--font-large);
-  margin: 24px 0;
+  margin: 6px 0 24px 0;
 }
 
 .contact__links i:hover {
